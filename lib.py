@@ -1,3 +1,4 @@
+import io
 from io import StringIO, BytesIO
 
 charLookup = {
@@ -267,6 +268,9 @@ def hexdump(src: BytesIO, chunk_size: int = 32, split_size: int = 8) -> str:
     s = StringIO()
 
     while data := src.read(chunk_size):
+        offset = src.seek(0, io.SEEK_CUR)
+        s.write('{0:05d} {0:04x}'.format(offset - len(data)))
+        s.write(' | ')
 
         # Hex
         for i, d in enumerate(data):
