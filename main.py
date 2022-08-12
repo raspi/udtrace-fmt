@@ -24,7 +24,7 @@ if __name__ == '__main__':
         fdid = int(fdid)
         data = bytes.fromhex(data)
 
-        print("---- Packet #{0}: fd:{1} type:{2} {3}  len: {4} (0x{4:02x})"
+        print("------------ Packet #{0}: fd:{1} type:{2} {3}  len: {4} (0x{4:02x})"
               .format(packetCounter, fdid, mtype, mchar, len(data))
               )
         print(hexdump(BytesIO(data), 16))
