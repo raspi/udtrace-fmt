@@ -280,6 +280,7 @@ def hexdump(src: BytesIO, chunk_size: int = 32, split_size: int = 8) -> str:
             s.write("{:02x} ".format(d))
 
         if len(data) != chunk_size:
+            # add padding
             s.write('   ' * (chunk_size - len(data)))
             s.write('  ' * int((chunk_size - len(data)) / split_size))
 
